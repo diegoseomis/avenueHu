@@ -1,0 +1,78 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hu Pedal</title>
+</head>
+
+<body>
+    <section class = "container">   
+        
+    <h2 id="titulo-form"> Cadastro de Avenidas</h2>
+    <ul id="mensagens-erro"></ul>
+
+    <form action="/" method="POST">
+       
+        <div class="grupo"></div>
+            <label for="avenue">Avenida:</label>
+            <input id="name" type="text" name = "avenue" placeholder="Digite o nome da Avenida" class="campo" required>
+        </div>
+
+        <div class="grupo">
+            <label for="avenueExtension">Extensão da Avenida(Km)</label>
+            <input id="avenueExtension" name="avenueExtension" type="text">
+        </div>
+
+    <fieldset>
+        <legend>
+            Possui ciclofaixa?
+        </legend>
+
+    <label for="bikePathYes"><input type="radio" name="bikePath" value = "yesPath" 
+    id="bikePathYes">Sim</label>
+
+    <label for="bikePathNo"><input type="radio" name="bikePath" value ="noPath" id="bikePathNo">Não</label>
+   
+   </fieldset>
+
+    <div class="grupo">
+        <label for="bikePathExtension"> Extensão da ciclofaixa(Km):</label>
+        <input id="bikePathExtension" type="text" name="bikePathExtension">
+    </div>
+    
+    <button type="submit">Cadastrar Avenida</button>
+   
+    </form>
+<h2 class="titulo-form">Lista de Avenidas</h2>
+
+</section>     
+     
+</body>
+   
+<div class="card">
+    {{#each avenues}}  
+
+    <div class="container">
+    <div class="column"></div>
+    <div class="card"><b>Endereço:</b> {{name}}
+    <hr><b>Extensão da Avenida(Km):</b>{{avenueExtension}}
+    <hr><b>Possui ciclofaixa?:</b> {{bikePath}}
+    <hr><b>Extensão da ciclofaixa:</b> {{bikePathExtension}}
+    <hr><b>% da ciclofaixa:</b> {{bikePathPercentage}}</div>
+    
+    <a href="/deletar/{{id}}"><button id="btn-delete" >Excluir</button></a>
+
+    </div>  
+
+   
+    {{/each}}
+
+</div>
+
+</html>
+
+
+
